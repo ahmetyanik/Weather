@@ -27,7 +27,6 @@ The project was created based on react. Weather data was obtained from the site 
 - Npm
 - GitHub
 - https://openweathermap.org/
-- 
 
 ## Contact
 
