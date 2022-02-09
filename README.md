@@ -31,4 +31,4 @@ The project was created based on react. Weather data was obtained from the site 
 ## Contact
 
 Created by Ahmet Yanik - feel free to contact me for any inquiries!
-ahmetyank4242@gmail.com
+ahmetyanikdev@gmail.com
