@@ -3,7 +3,7 @@ import Searchbox from "./Searchbox";
 
 function Homepage() {
 
-  console.log("GA LA TA SA RAY");
+  console.log("GA LA TA SA RAY 1 2 3");
 
   return (
     <div
