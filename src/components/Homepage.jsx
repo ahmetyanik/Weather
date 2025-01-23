@@ -3,8 +3,6 @@ import Searchbox from "./Searchbox";
 
 function Homepage() {
 
-  console.log("Hello World2");
-
   return (
     <div
       className="homepage"
