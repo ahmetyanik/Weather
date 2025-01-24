@@ -2,7 +2,7 @@ import React from "react";
 import Searchbox from "./Searchbox";
 
 function Homepage() {
-
+console.log("ahmet");
   return (
     <div
       className="homepage"
