@@ -27,14 +27,7 @@ steps:
     git config --global user.name 'Ahmet Yanik'
     git config --global user.email 'ahmet.yanik@nteam.com'
 
-    # Prod repo için kimlik doğrulama
-    git remote add prod_repo https://$(GITHUB_USERNAME):$(GITHUB_TOKEN)@github.com/ahmetyanik/WheatherPROD.git
-
-    # Branch'leri kontrol et
-    git branch -a
-    git status
-
-    # Kodları Prod Repo'ya Push Et
+    # Kodları Prod Repo'ya Push Et (Doğrudan bağlantıyı belirt)
     git add .
     git commit -m 'Auto-deploy: $(Build.BuildId)'
     git push https://$(GITHUB_USERNAME):$(GITHUB_TOKEN)@github.com/ahmetyanik/WheatherPROD.git main:main
