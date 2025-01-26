@@ -27,8 +27,7 @@ steps:
     git config --global user.name 'Ahmet Yanik'
     git config --global user.email 'ahmet.yanik@nteam.com'
 
-    # Kodları Prod Repo'ya Push Et (Doğrudan bağlantıyı belirt)
-    git add .
-    git commit -m 'Auto-deploy: $(Build.BuildId)'
-    git push https://$(GITHUB_USERNAME):$(GITHUB_TOKEN)@github.com/ahmetyanik/WheatherPROD.git main:main
+    # Git Remote'yi temizle ve bağlantıyı doğrudan git push ile yap
+    git remote remove prod_repo
+    git push https://$(GITHUB_USERNAME):$(GITHUB_TOKEN)@github.com/ahmetyanik/WheatherPROD.git HEAD:main
   displayName: 'Push changes to GitHub Prod Repo'
