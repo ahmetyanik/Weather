@@ -28,7 +28,7 @@ steps:
     git config --global user.email "ahmet.yanik@nteam.com"
 
     # Prod repo için kimlik doğrulama
-    git remote add prod_repo https://$(GITHUB_USERNAME):$(GITHUB_TOKEN)@github.com/ahmetyanik/WheatherPROD
+    git remote add prod_repo https://github.com/ahmetyanik/WheatherPROD
     
     # Kodları Prod Repo'ya Push Et
     git add .
