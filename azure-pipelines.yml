@@ -29,9 +29,9 @@ steps:
 
     # Prod repo için kimlik doğrulama
     git remote add prod_repo https://$(GITHUB_USERNAME):$(GITHUB_TOKEN)@github.com/ahmetyanik/WheatherPROD.git
-    
+
     # Kodları Prod Repo'ya Push Et
     git add .
     git commit -m 'Auto-deploy: $(Build.BuildId)'
     git push prod_repo main:main
-    
+  displayName: 'Push changes to GitHub Prod Repo'
