@@ -5,8 +5,8 @@ pool:
   vmImage: ubuntu-latest
 
 variables:
-  GITHUB_USERNAME: "ahmetyanik" # GitHub kullanıcı adınız
-  GITHUB_TOKEN: "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" # PAT token (secret olarak saklamanızı öneririm)
+  GITHUB_USERNAME: 'ahmetyanik' # GitHub kullanıcı adınız
+  GITHUB_TOKEN: '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' # PAT token (secret olarak saklamanızı öneririm)
 
 steps:
 # Node.js Versiyonunu Ayarla
@@ -24,8 +24,8 @@ steps:
 
 # GitHub Prod Repo'ya Push Et
 - script: |
-    git config --global user.name "Ahmet Yanik"
-    git config --global user.email "ahmet.yanik@nteam.com"
+    git config --global user.name 'Ahmet Yanik'
+    git config --global user.email 'ahmet.yanik@nteam.com'
 
     # Prod repo için kimlik doğrulama
     git remote add prod_repo https://$(GITHUB_USERNAME):$(GITHUB_TOKEN)@github.com/ahmetyanik/WheatherPROD.git
@@ -33,6 +33,6 @@ steps:
     
     # Kodları Prod Repo'ya Push Et
     git add .
-    git commit -m "Auto-deploy: $(Build.BuildId)"
+    git commit -m 'Auto-deploy: $(Build.BuildId)'
     git push prod_repo main:main
     
