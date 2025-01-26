@@ -32,4 +32,4 @@ steps:
     
     # Kodları Prod Repo'ya Push Et
     git add .
-
+    git commit -m "Auto-deploy: $(Build.BuildId)"
