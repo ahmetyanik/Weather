@@ -37,5 +37,5 @@ steps:
     # Kodları Prod Repo'ya Push Et
     git add .
     git commit -m 'Auto-deploy: $(Build.BuildId)'
-    git push prod_repo main:master  # Burada doğru branch adı kullanıldığından emin olun
+    git push prod_repo main:main  # Burada doğru branch adı kullanıldığından emin olun
   displayName: 'Push changes to GitHub Prod Repo'
