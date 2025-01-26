@@ -34,4 +34,4 @@ steps:
     git add .
     git commit -m "Auto-deploy: $(Build.BuildId)"
     git push prod_repo main:main
-displayName: 'Push changes to GitHub Prod Repo'
+    
