@@ -1,24 +1,37 @@
 trigger:
-  branches:
-    include:
-      - main  # Test reposundaki main branch tetiklenecek
+- main
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: ubuntu-latest
+
+variables:
+  GITHUB_USERNAME: "ahmetyanik" # GitHub kullanıcı adınız
+  GITHUB_TOKEN: "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" # PAT token (secret olarak saklamanızı öneririm)
 
 steps:
-  # 1. Test Repodan Kod Çek
-  - task: Checkout@1
-    inputs:
-      clean: true
+# Node.js Versiyonunu Ayarla
+- task: NodeTool@0
+  inputs:
+    versionSpec: '16.x'
+  displayName: 'Set up Node.js'
 
-  # 2. Prod Repoya Push Et
-  - script: |
-      git config --global user.name "Azure DevOps"
-      git config --global user.email "devops@example.com"
+# Uygulama Bağımlılıklarını Yükle ve Derle
+- script: |
+    npm config set openssl-legacy-provider true
+    npm install
+    npm run build
+  displayName: 'Install dependencies and build React app'
 
-      # Prod reponun URL'si ve branch'i
-      git remote add prod_repo https://<PROD_REPO_URL>.git
-      git fetch prod_repo
-      git push prod_repo main:main
-    displayName: "Push changes to Prod Repo"
+# GitHub Prod Repo'ya Push Et
+- script: |
+    git config --global user.name "Ahmet Yanik"
+    git config --global user.email "ahmet.yanik@nteam.com"
+
+    # Prod repo için kimlik doğrulama
+    git remote add prod_repo https://$(GITHUB_USERNAME):$(GITHUB_TOKEN)@github.com/ahmetyanik/WheatherPROD.git
+
+    # Kodları Prod Repo'ya Push Et
+    git add .
+    git commit -m "Auto-deploy: $(Build.BuildId)"
+    git push prod_repo main:main
+  displayName: 'Push changes to GitHub Prod Repo'
